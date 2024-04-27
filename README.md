@@ -21,7 +21,7 @@ Tools/Services used - Github, AWS CodeBuild, AWS CodePipeline, AWS Systems Manag
                                                                |           image
                                                                |
                                                                V
-                                                          BUild Image
+                                                          Build Image
 
 
                                                  AWS CI Pipeline
