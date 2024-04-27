@@ -1,0 +1,27 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_USERNAME: username
+    DOCKER_PASSWORD: password
+    DOCKER_URL: url
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+  pre_build:
+    commands:
+      - echo "Installing dependencies"
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - echo "Start of Build"
+      - echo "##############"
+      - echo "Building Docker Image"
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin "$DOCKER_URL"
+      - docker build -t "$DOCKER_URL/$DOCKER_USERNAME/simple-python-flask-app:latest" .
+      - docker push "$DOCKER_URL/$DOCKER_USERNAME/simple-python-flask-app:latest"
+  post_build:
+    commands:
+      - echo "End of Build"
