@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 set -e
 
 docker pull venkatapavan29/simple-python-flask-app
