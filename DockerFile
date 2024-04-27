@@ -19,3 +19,5 @@ EXPOSE 5000
 #run the flask application
 CMD ["python", "app.py"]
 
+#End of Dockerfile
+
