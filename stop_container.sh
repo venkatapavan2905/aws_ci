@@ -2,6 +2,8 @@
 
 set -e
 
-echo "Hi"
+containerid = 'docker ps | awk -F " " '{print $1}''
 
-#trigger cd
+docker rm -f $containerid
+
+#delete running container
